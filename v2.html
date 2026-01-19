@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lingko — 個人作品集</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
+      min-height: 100vh;
+      color: #e0f7fa;
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
+      color: #ffffff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 0 15px #00ffff;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 0;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: -2rem auto 0;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 10px 40px rgba(0,255,255,0.3);
+      position: relative;
+      z-index: 1;
+      color: #e0f7fa;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,255,255,0.4);
+      color: #e0f7fa;
+    }
+
+    .intro h2 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #b2ebf2;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      background: rgba(0,0,0,0.6);
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,255,255,0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      color: #e0f7fa;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,255,255,0.6);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: #ffffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    .card-description {
+      color: #b2ebf2;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .skills {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .skills h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      background: rgba(0,0,0,0.6);
+      color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+    }
+
+    .skill-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .skill-item h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid #00ffff;
+      color: #b2ebf2;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+      box-shadow: 0 0 10px rgba(0,255,255,0.4);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0,255,255,0.7);
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .container {
+        margin-top: -1rem;
+        padding: 2rem 1rem;
+      }
+
+      .intro h2 {
+        font-size: 2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Lingko 的作品集</h1>
+    <p>創意無限，程式碼有情</p>
+  </div>
+
+  <div class="container">
+    <div class="intro">
+      <h2>關於我</h2>
+      <p>歡迎來到我的個人作品集！這裡展示了我的一些創意作品和程式開發項目。無論是網頁設計、應用開發還是其他數位創作，我都致力於創造美觀且實用的解決方案。</p>
+    </div>
+
+    <div class="skills">
+      <h2>技能專長</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>前端開發</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <h3>後端開發</h3>
+          <p>Node.js, Python</p>
+        </div>
+        <div class="skill-item">
+          <h3>UI/UX 設計</h3>
+          <p>設計美觀的用戶介面</p>
+        </div>
+        <div class="skill-item">
+          <h3>創意 coding</h3>
+ <p>解決問題的創新方案</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="text-align: center; font-size: 2.5rem; margin: 3rem 0 2rem 0; font-weight: 600;">作品展示</h2>
+    <div class="gallery">
+      <div class="card">
+        <img alt="示範作品 1" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
+        <div class="card-content">
+          <h3 class="card-title">創意項目</h3>
+          <p class="card-description">一個充滿創意的開發項目展示</p>
+        </div>
+      </div>
+      <div class="card">
+        <img alt="示範作品 2" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop" />
+        <div class="card-content">
+          <h3 class="card-title">網頁設計</h3>
+          <p class="card-description">現代化的響應式網頁設計作品</p>
+        </div>
+      </div>
+      <div class="card">
+        <img alt="示範作品 3" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" />
+        <div class="card-content">
+          <h3 class="card-title">應用開發</h3>
+          <p class="card-description">實用的行動應用程式開發</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a class="button" href="https://github.com/lingkops4/lingko.github.io">查看更多作品</a>
+      <a class="button" href="mailto:contact@lingko.dev">聯絡我</a>
+    </div>
+
+    <footer>
+      <p>© 2024 Lingko. 用 ❤️ 和程式碼創作</p>
+      <p>Repo: lingkops4/lingko.github.io · 分支: master</p>
+    </footer>
+  </div>
+</body>
+</html>
