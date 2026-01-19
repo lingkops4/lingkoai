@@ -12,14 +12,14 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
       min-height: 100vh;
-      color: #333;
+      color: #e0f7fa;
     }
 
     .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
+      color: #ffffff;
       padding: 4rem 2rem;
       text-align: center;
     }
@@ -28,7 +28,7 @@
       font-size: 3rem;
       font-weight: 700;
       margin: 0 0 1rem 0;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 0 0 15px #00ffff;
       animation: fadeInUp 1s ease-out;
     }
 
@@ -42,35 +42,39 @@
     .container {
       max-width: 1200px;
       margin: -2rem auto 0;
-      background: #fff;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
       padding: 3rem;
       border-radius: 20px 20px 0 0;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px rgba(0,255,255,0.3);
       position: relative;
       z-index: 1;
+      color: #e0f7fa;
     }
 
     .intro {
       text-align: center;
       margin-bottom: 3rem;
       padding: 2rem;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: rgba(0,0,0,0.6);
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0,255,255,0.4);
+      color: #e0f7fa;
     }
 
     .intro h2 {
-      color: #2c3e50;
       font-size: 2.5rem;
       margin: 0 0 1rem 0;
       font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
     }
 
     .intro p {
       font-size: 1.1rem;
-      color: #34495e;
       max-width: 600px;
       margin: 0 auto;
+      color: #b2ebf2;
     }
 
     .gallery {
@@ -83,16 +87,17 @@
     .card {
       border: none;
       border-radius: 15px;
-      background: #fff;
+      background: rgba(0,0,0,0.6);
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 25px rgba(0,255,255,0.4);
       transition: all 0.3s ease;
       position: relative;
+      color: #e0f7fa;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 35px rgba(0,255,255,0.6);
     }
 
     .card img {
@@ -114,11 +119,12 @@
       font-size: 1.3rem;
       font-weight: 600;
       margin: 0 0 0.5rem 0;
-      color: #2c3e50;
+      color: #ffffff;
+      text-shadow: 0 0 8px #00ffff;
     }
 
     .card-description {
-      color: #7f8c8d;
+      color: #b2ebf2;
       margin: 0;
       font-size: 0.95rem;
     }
@@ -129,10 +135,11 @@
     }
 
     .skills h2 {
-      color: #2c3e50;
       font-size: 2.5rem;
       margin-bottom: 2rem;
       font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
     }
 
     .skills-grid {
@@ -143,12 +150,13 @@
     }
 
     .skill-item {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: rgba(0,0,0,0.6);
+      color: #ffffff;
       padding: 1.5rem;
       border-radius: 10px;
       text-align: center;
       transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
     }
 
     .skill-item:hover {
@@ -158,31 +166,34 @@
     .skill-item h3 {
       margin: 0 0 0.5rem 0;
       font-size: 1.2rem;
+      text-shadow: 0 0 8px #00ffff;
     }
 
     footer {
       margin-top: 4rem;
       padding: 2rem 0;
       text-align: center;
-      border-top: 1px solid #ecf0f1;
-      color: #7f8c8d;
+      border-top: 1px solid #00ffff;
+      color: #b2ebf2;
     }
 
     .button {
       display: inline-block;
       padding: 0.8rem 1.5rem;
       border-radius: 25px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: rgba(0,0,0,0.6);
       color: #fff;
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
       margin: 0.5rem;
+      box-shadow: 0 0 10px rgba(0,255,255,0.4);
     }
 
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 0 20px rgba(0,255,255,0.7);
+      text-shadow: 0 0 5px #00ffff;
     }
 
     @keyframes fadeInUp {
@@ -249,12 +260,12 @@
         </div>
         <div class="skill-item">
           <h3>創意 coding</h3>
-          <p>解決問題的創新方案</p>
+ <p>解決問題的創新方案</p>
         </div>
       </div>
     </div>
 
-    <h2 style="text-align: center; color: #2c3e50; font-size: 2.5rem; margin: 3rem 0 2rem 0; font-weight: 600;">作品展示</h2>
+    <h2 style="text-align: center; font-size: 2.5rem; margin: 3rem 0 2rem 0; font-weight: 600;">作品展示</h2>
     <div class="gallery">
       <div class="card">
         <img alt="示範作品 1" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
