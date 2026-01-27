@@ -1,304 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lingko — 個人作品集</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lingko — 個人作品集 2026</title>
   <style>
     * { box-sizing: border-box; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
-      min-height: 100vh;
-      color: #e0f7fa;
+      margin: 0; padding: 0; line-height: 1.6;
+      background: #0a0a1a; color: #e0f7fa; min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    /* 粒子背景（輕量版，唔會卡） */
+    body {
+  background: linear-gradient(180deg, #0a0a1a 0%, #000814 40%, #001122 70%, #000304 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0; z-index: -2;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 204, 255, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 150, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(125, 211, 252, 0.05) 0%, transparent 60%);
+  opacity: 0.7;
+  animation: slowDrift 60s linear infinite;
+}
+@keyframes slowDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-3%, -3%) scale(1.05); }
+}
+
+    /* 頂部橫幅 */
     .hero {
-      background: linear-gradient(to bottom, #000000, #0f2f2f, #00c2c2);
-      color: #ffffff;
-      padding: 4rem 2rem;
-      text-align: center;
+      
+      color: #ffffff; padding: 6rem 1.5rem; text-align: center;
+      position: relative; overflow: hidden;
     }
-
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(0, 255, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin: 0 0 1rem 0;
-      text-shadow: 0 0 15px #00ffff;
-      animation: fadeInUp 1s ease-out;
+      font-size: 3.4rem; font-weight: 800; margin: 0 0 0.8rem;
+      text-shadow: 0 0 30px #00ffffaa, 0 0 60px #0099ff88;
+      animation: glowText 5s ease-in-out infinite alternate;
+    }
+    @keyframes glowText {
+      0% { text-shadow: 0 0 20px #00ffff80, 0 0 40px #0099ff60; }
+      100% { text-shadow: 0 0 40px #00ffffcc, 0 0 80px #0099ffaa; }
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin: 0;
-      opacity: 0.9;
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-
+    /* 主要容器 */
     .container {
-      max-width: 1200px;
-      margin: -2rem auto 0;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      padding: 3rem;
-      border-radius: 20px 20px 0 0;
-      box-shadow: 0 10px 40px rgba(0,255,255,0.3);
+      max-width: 1200px; margin: -4rem auto 0;
+      background: rgba(0, 20, 40, 0.6); backdrop-filter: blur(16px);
+      padding: 4rem 2rem; border-radius: 28px 28px 28px 28px;
+      box-shadow: 0 15px 60px rgba(0, 150, 255, 0.4);
+      position: relative; z-index: 1;
+    }
+
+    /* 關於我 - 玻璃卡片 */
+    .about-card {
+      background: rgba(10, 30, 60, 0.55);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(0, 204, 255, 0.35);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      max-width: 820px;
+      margin: 0 auto 4.5rem;
+      box-shadow: 0 12px 50px rgba(0, 150, 255, 0.3);
+      transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
       position: relative;
-      z-index: 1;
-      color: #e0f7fa;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: rgba(0,0,0,0.6);
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,255,255,0.4);
-      color: #e0f7fa;
-    }
-
-    .intro h2 {
-      font-size: 2.5rem;
-      margin: 0 0 1rem 0;
-      font-weight: 600;
-      color: #ffffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      color: #b2ebf2;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      border: none;
-      border-radius: 15px;
-      background: rgba(0,0,0,0.6);
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,255,255,0.4);
-      transition: all 0.3s ease;
-      position: relative;
-      color: #e0f7fa;
+    }
+    .about-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 80px rgba(0, 150, 255, 0.5);
+      border-color: rgba(0, 255, 255, 0.6);
+    }
+    .about-card h2 {
+      font-size: 2.8rem; margin: 0 0 1.2rem; text-align: center;
+      text-shadow: 0 0 25px #00ccffaa;
+    }
+    .intro-text {
+      font-size: 1.3rem; text-align: center; max-width: 680px; margin: 0 auto;
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUpText 1.4s ease-out forwards 0.3s;
+    }
+    .intro-text:hover {
+      transform: translateY(-6px);
+      text-shadow: 0 0 20px #00ffffaa;
+    }
+    @keyframes fadeUpText {
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,255,255,0.6);
+    /* 技能與作品 */
+    .skills-grid, .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem; margin-top: 2.5rem;
     }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+    .skill-item, .card {
+      background: rgba(0, 20, 40, 0.75); border-radius: 16px;
+      padding: 1.8rem; border: 1px solid rgba(0, 204, 255, 0.25);
+      transition: all 0.35s ease;
     }
-
-    .card:hover img {
-      transform: scale(1.05);
+    .skill-item:hover, .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+      border-color: #00ffff;
     }
+    .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; }
 
-    .card-content {
-      padding: 1.5rem;
-    }
+    h2.section-title { text-align: center; margin: 5rem 0 2.5rem; font-size: 2.6rem; text-shadow: 0 0 20px #00ccff; }
 
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 0 0 0.5rem 0;
-      color: #ffffff;
-      text-shadow: 0 0 8px #00ffff;
-    }
-
-    .card-description {
-      color: #b2ebf2;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    .skills {
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .skills h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      font-weight: 600;
-      color: #ffffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .skill-item {
-      background: rgba(0,0,0,0.6);
-      color: #ffffff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(0,255,255,0.3);
-    }
-
-    .skill-item:hover {
-      transform: translateY(-3px);
-    }
-
-    .skill-item h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.2rem;
-      text-shadow: 0 0 8px #00ffff;
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding: 2rem 0;
-      text-align: center;
-      border-top: 1px solid #00ffff;
-      color: #b2ebf2;
-    }
-
+    /* 通用按鈕 */
     .button {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      margin: 0.5rem;
-      box-shadow: 0 0 10px rgba(0,255,255,0.4);
+      display: inline-block; padding: 1rem 2.2rem; border-radius: 50px;
+      background: linear-gradient(90deg, #0099ff, #00ffff);
+      color: #000; text-decoration: none; font-weight: 700; margin: 0.6rem;
+      transition: all 0.3s;
     }
+    .button:hover { transform: scale(1.08); box-shadow: 0 0 25px #00ffffaa; }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(0,255,255,0.7);
-      text-shadow: 0 0 5px #00ffff;
+    /* 立體對話框（保持原樣，但略調位置） */
+    :root {
+      --accent: #7dd3fc;
+      --shadow: rgba(2,6,23,0.7);
     }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .stage {
+      margin: 6rem auto 4rem;
+      width: 90%; max-width: 420px;
+      perspective: 1400px; text-align: center;
     }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .container {
-        margin-top: -1rem;
-        padding: 2rem 1rem;
-      }
-
-      .intro h2 {
-        font-size: 2rem;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
+    .floating-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius: 20px; padding: 1.6rem;
+      box-shadow: 0 30px 70px -20px var(--shadow), 0 0 40px rgba(125,211,252,0.3);
+      transform-style: preserve-3d;
+      transition: all 0.45s cubic-bezier(0.23,1,0.32,1);
+      border: 1px solid rgba(125,211,252,0.35);
+      backdrop-filter: blur(10px) saturate(140%);
     }
+    .floating-card.is-floating {
+      transform: translateY(-30px) translateZ(80px) rotateX(6deg);
+      box-shadow: 0 80px 120px -40px rgba(2,6,23,0.9), 0 0 60px rgba(125,211,252,0.45);
+    }
+    .chat-line { display: flex; gap: 14px; align-items: flex-start; }
+    .avatar {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      flex: 0 0 48px; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transform: translateZ(40px);
+    }
+    .bubble {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+      padding: 14px 18px; border-radius: 16px; max-width: 75%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transform: translateZ(30px); font-size: 15px; line-height: 1.5;
+    }
+    .controls { margin-top: 2rem; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      background: transparent; color: #e6eef8; border: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 16px; border-radius: 12px; cursor: pointer; font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: rgba(125,211,252,0.15); }
+    .btn.primary {
+      background: linear-gradient(90deg, #0369a1, #7dd3fc);
+      color: #021022; border: none; box-shadow: 0 8px 20px rgba(7,89,133,0.3);
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg); }
+      50% { transform: translateY(-14px) translateZ(20px) rotateX(4deg) rotateY(3deg); }
+    }
+    .subtle { animation: floaty 5.2s ease-in-out infinite; }
   </style>
 </head>
 <body>
+
   <div class="hero">
     <h1>Lingko 的作品集</h1>
-    <p>創意無限，程式碼有情</p>
+    <p>創意無限，程式碼有情 · 2026 Edition</p>
   </div>
 
   <div class="container">
-    <div class="intro">
+    <!-- 關於我玻璃卡片 -->
+    <div class="about-card">
       <h2>關於我</h2>
-      <p>歡迎來到我的個人作品集！這裡展示了我的一些創意作品和程式開發項目。無論是網頁設計、應用開發還是其他數位創作，我都致力於創造美觀且實用的解決方案。</p>
+      <p class="intro-text">
+        前端 × AI 藝術 × 極致數位體驗<br>
+        歡迎探索我的小宇宙～ ✨😌
+      </p>
     </div>
 
-    <div class="skills">
-      <h2>技能專長</h2>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h3>前端開發</h3>
-          <p>HTML, CSS, JavaScript</p>
-        </div>
-        <div class="skill-item">
-          <h3>後端開發</h3>
-          <p>Node.js, Python</p>
-        </div>
-        <div class="skill-item">
-          <h3>UI/UX 設計</h3>
-          <p>設計美觀的用戶介面</p>
-        </div>
-        <div class="skill-item">
-          <h3>創意 coding</h3>
- <p>解決問題的創新方案</p>
-        </div>
-      </div>
+    <h2 class="section-title">技能專長</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><h3>前端開發</h3><p>HTML5 / CSS3 / JS (ES6+)</p></div>
+      <div class="skill-item"><h3>後端開發</h3><p>Node.js / Python / API</p></div>
+      <div class="skill-item"><h3>AI 圖像生成</h3><p>ComfyUI / SD / LoRA 訓練</p></div>
+      <div class="skill-item"><h3>UI/UX 設計</h3><p>Figma / 現代交互</p></div>
+      <div class="skill-item"><h3>雲端自動化</h3><p>GitHub Actions / Cloudflare</p></div>
+      <div class="skill-item"><h3>資料庫</h3><p>MongoDB / MySQL / Firebase</p></div>
     </div>
 
-    <h2 style="text-align: center; font-size: 2.5rem; margin: 3rem 0 2rem 0; font-weight: 600;">作品展示</h2>
+    <h2 class="section-title">作品展示</h2>
     <div class="gallery">
       <div class="card">
-        <img alt="示範作品 1" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
-        <div class="card-content">
-          <h3 class="card-title">創意項目</h3>
-          <p class="card-description">一個充滿創意的開發項目展示</p>
-        </div>
+        <img alt="AI 藝術" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
+        <h3>AI 創意項目</h3>
+        <p>提示詞工程 + ComfyUI 藝術生成</p>
       </div>
       <div class="card">
-        <img alt="示範作品 2" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop" />
-        <div class="card-content">
-          <h3 class="card-title">網頁設計</h3>
-          <p class="card-description">現代化的響應式網頁設計作品</p>
-        </div>
+        <img alt="響應式網頁" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
+        <h3>響應式網頁</h3>
+        <p>跨裝置完美呈現的現代介面</p>
       </div>
       <div class="card">
-        <img alt="示範作品 3" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" />
-        <div class="card-content">
-          <h3 class="card-title">應用開發</h3>
-          <p class="card-description">實用的行動應用程式開發</p>
-        </div>
+        <img alt="工具應用" src="https://github.com/user-attachments/assets/357edee8-8e74-4478-aa5a-d3ad8ec400c9" />
+        <h3>實用工具開發</h3>
+        <p>解決痛點的高效小工具</p>
       </div>
     </div>
 
-    <div style="text-align: center; margin: 3rem 0;">
-      <a class="button" href="https://github.com/lingkops4/lingko.github.io">查看更多作品</a>
+    <div style="text-align: center; margin: 5rem 0;">
+      <a class="button" href="https://github.com" target="_blank">GitHub</a>
       <a class="button" href="mailto:contact@lingko.dev">聯絡我</a>
     </div>
 
-    <footer>
-      <p>© 2024 Lingko. 用 ❤️ 和程式碼創作</p>
-      <p>Repo: lingkops4/lingko.github.io · 分支: master</p>
-    </footer>
+   <footer style="
+  position: relative;
+  width: 100%;
+  background: linear-gradient(90deg, #001122 0%, #002244 35%, #003366 50%, #002244 65%, #001122 100%);
+  border-radius: 32px;
+  margin-top: 5rem;
+  padding: 2.5rem 1rem;
+  box-shadow: 0 -12px 40px rgba(0,0,0,0.7),
+              inset 0 0 60px rgba(0,0,0,0.5),
+              inset 40px 0 100px rgba(0, 18, 34, 0.9),
+              inset -40px 0 100px rgba(0, 18, 34, 0.9);
+  overflow: hidden;
+  text-align: center;   /* 加呢行就可以置中文字 */
+">
+  <!-- 中間光暈 -->
+  <div style="
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(0, 204, 255, 0.13) 0%, transparent 65%);
+    pointer-events: none;
+  "></div>
+
+  <p style="
+    margin: 0;
+    font-size: 1.05rem;
+    color: #c8e0ff;
+    position: relative;
+    z-index: 1;
+  ">
+    © 2026 Lingko. 用 ❤️ 和程式碼創作
+  </p>
+</footer>
+
   </div>
+
+  <!-- 中間對話框 -->
+  <div class="stage">
+    <div id="card" class="floating-card subtle">
+      <div class="chat-line">
+        <div class="avatar"></div>
+        <div class="bubble">
+          嘿～ 整個頁面都靚晒啦！<br>
+          滑鼠移過嚟玩下～ 我會跟住你轉 😏✨
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="toggleFloat" class="btn">切換強浮動</button>
+      <button id="toggleSubtle" class="btn primary">關閉微動</button>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    const toggleFloat = document.getElementById('toggleFloat');
+    const toggleSubtle = document.getElementById('toggleSubtle');
+
+    toggleFloat.addEventListener('click', () => card.classList.toggle('is-floating'));
+    toggleSubtle.addEventListener('click', () => {
+      card.classList.toggle('subtle');
+      toggleSubtle.textContent = card.classList.contains('subtle') ? '開啟微動' : '關閉微動';
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / rect.width * 10;
+      const dy = (e.clientY - cy) / rect.height * 8;
+      card.style.transform = `translateY(-15px) translateZ(50px) rotateX(${dy}deg) rotateY(${dx}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = card.classList.contains('is-floating')
+        ? 'translateY(-30px) translateZ(80px) rotateX(6deg)'
+        : '';
+    });
+  </script>
+
+</body>
+</html>
+
+
 </body>
 </html>
