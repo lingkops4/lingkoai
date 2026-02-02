@@ -198,7 +198,7 @@ body::before {
 
   <div class="hero">
     <h1>Lingko 的作品集</h1>
-    <p>創意無限，程式碼有情 · 2026 Edition</p>
+    <p>創意有限，程式碼無情 · 2046 Edition<p>
   </div>
 
   <div class="container">
@@ -211,15 +211,40 @@ body::before {
       </p>
     </div>
 
-    <h2 class="section-title">技能專長</h2>
-    <div class="skills-grid">
-      <div class="skill-item"><h3>前端開發</h3><p>HTML5 / CSS3 / JS (ES6+)</p></div>
-      <div class="skill-item"><h3>後端開發</h3><p>Node.js / Python / API</p></div>
-      <div class="skill-item"><h3>AI 圖像生成</h3><p>ComfyUI / SD / LoRA 訓練</p></div>
-      <div class="skill-item"><h3>UI/UX 設計</h3><p>Figma / 現代交互</p></div>
-      <div class="skill-item"><h3>雲端自動化</h3><p>GitHub Actions / Cloudflare</p></div>
-      <div class="skill-item"><h3>資料庫</h3><p>MongoDB / MySQL / Firebase</p></div>
+   <div class="skills">
+      <h2>技能專長</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>前端開發</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <h3>後端開發</h3>
+          <p>Node.js, Python</p>
+        </div>
+        <div class="skill-item">
+          <h3>UI/UX 設計</h3>
+          <p>設計美觀的用戶介面</p>
+        </div>
+        <div class="skill-item">
+          <h3>創意 Coding</h3>
+          <p>解決問題的創新方案</p>
+        </div>
+        <div class="skill-item">
+          <h3>AI 圖像生成</h3>
+          <p>ComfyUI, Stable Diffusion, HuggingFace</p>
+        </div>
+        <div class="skill-item">
+          <h3>雲端部署</h3>
+          <p>Cloudflare Pages, GitHub Actions</p>
+        </div>
+        <div class="skill-item">
+          <h3>資料庫管理</h3>
+          <p>MySQL, MongoDB, Firebase</p>
+        </div>
+      </div>
     </div>
+
 
     <h2 class="section-title">作品展示</h2>
     <div class="gallery">
@@ -274,7 +299,7 @@ body::before {
     position: relative;
     z-index: 1;
   ">
-    © 2026 Lingko. 用 ❤️ 和程式碼創作
+    © 1984🧸 Lingko®️ 🪅🪅草泥馬程式碼創作🪅🪅
   </p>
 </footer>
 
@@ -286,8 +311,8 @@ body::before {
       <div class="chat-line">
         <div class="avatar"></div>
         <div class="bubble">
-          嘿～ 整個頁面都靚晒啦！<br>
-          滑鼠移過嚟玩下～ 我會跟住你轉 😏✨
+          嘿～1984🧸 整個頁面都係草泥馬啦！<br>
+          滑鼠移過嚟玩下～🪅 草泥馬會跟住你轉 🪅✨
         </div>
       </div>
     </div>
@@ -324,6 +349,141 @@ body::before {
         : '';
     });
   </script>
+ <html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <title>Kenji Cyber Nero Player 🎮</title>
+  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet">
+  <style>
+    body { background: #0a0f1c; color: #00ffff; text-align: center; font-family: 'Orbitron', sans-serif; }
+    .video-js { margin: 20px auto; border: 3px solid #1e90ff; border-radius: 8px; }
+    .video-js .vjs-control-bar { background-color: rgba(10,15,28,0.85); }
+    .video-js .vjs-play-control,
+    .video-js .vjs-volume-panel,
+    .video-js .vjs-progress-control { color: #00ffff; }
+    .video-js .vjs-slider { background-color: #1e90ff; }
+    .transparent-btn {
+      background: transparent; border: none; color: #00ffff;
+      font-size: 16px; margin: 3px; cursor: pointer; font-family: 'Orbitron';
+    }
+    .transparent-btn:hover { color: #1e90ff; }
+    .url-input { width: 400px; max-width: 80%; padding: 8px; border-radius: 6px;
+      border: 1px solid #1e90ff; background:#0a0f1c; color:#00ffff; font-size:14px; }
+    .playlist-ui { margin-top:20px; }
+    .playlist-item { cursor:pointer; padding:6px; margin:4px auto; width:300px;
+      border:1px solid #1e90ff; border-radius:6px; background:#0a0f1c; color:#00ffff; }
+    .playlist-item:hover { background:#1e90ff; color:#fff; }
+  </style>
+</head>
+<body>
+
+<h2>💻📺🎞️Lingko Player 🎞️📺💻</h2>
+
+<video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="800" height="450" poster="display.png" data-setup="{}">
+  <source src="MY_VIDEO_720p.mp4" type="video/mp4" label="720p">
+  <source src="MY_VIDEO_1080p.mp4" type="video/mp4" label="1080p">
+  <source src="MY_VIDEO.webm" type="video/webm" label="WebM">
+</video>
+
+<!-- 功能列 -->
+<div>
+  <button id="play-btn" class="btn primary">⏯️ 播放</button>
+  <button id="pause-btn" class="btn primary">🟥 暫停</button>
+  <button id="prev-btn" class="btn primary">⏪ 向後 3 秒</button>
+  <button id="next-btn" class="btn primary"> 向前 3 秒 ⏩</button>
+  <button id="prev-video-btn" class="btn primary">⏮️ 上一個影片</button>
+  <button id="next-video-btn" class="btn primary">下一個影片⏭️ </button>
+ 
+</div>
+
+<!-- 自訂網址輸入 -->
+<div style="margin-top:-554px;">
+  <input id="url-input" class="url-input" placeholder="輸入 mp4 / webm 網址">
+  <button id="load-url-btn" class="btn primary">🎦載入網址</button>
+</div>
+
+<!-- Playlist UI 清單 -->
+<div class="playlist-ui" id="playlist-ui"></div>
+
+<script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+<script>
+  var player = videojs('my-video', {
+    controls: true,
+    autoplay: true,
+    preload: 'auto',
+    playbackRates: [0.5, 1, 1.5, 2]
+  });
+
+  var playlist = [
+    { src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", name:"720p 版本" },
+    { src:"https://lingko.my.canva.site/_assets/video/6899e8e42b4faf2ca50e52139bec2ca4.mp4", name:"1080p 版本" },
+    { src:"MY_VIDEO.webm", type:"video/webm", name:"WebM 版本" }
+  ];
+  var currentIndex = 0;
+
+  // 播放
+  document.getElementById("play-btn").onclick = () => player.play();
+  // 暫停
+  document.getElementById("pause-btn").onclick = () => player.pause();
+  // 向後 3 秒
+  document.getElementById("prev-btn").onclick = () => player.currentTime(Math.max(player.currentTime()-3,0));
+  // 向前 3 秒
+  document.getElementById("next-btn").onclick = () => player.currentTime(Math.min(player.currentTime()+3,player.duration()));
+
+  // 截圖
+  document.getElementById("snapshot-btn").onclick = () => {
+    var videoEl = document.querySelector('video');
+    if (!videoEl || videoEl.videoWidth === 0) { alert("影片未載入，截唔到圖"); return; }
+    var canvas = document.createElement('canvas');
+    canvas.width = videoEl.videoWidth; canvas.height = videoEl.videoHeight;
+    canvas.getContext('2d').drawImage(videoEl, 0, 0);
+    var link = document.createElement('a');
+    link.download = 'snapshot.png'; link.href = canvas.toDataURL('image/png'); link.click();
+  };
+
+  // 上一個影片
+  document.getElementById("prev-video-btn").onclick = () => {
+    currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+    player.src(playlist[currentIndex]);
+    player.play();
+  };
+  // 下一個影片
+  document.getElementById("next-video-btn").onclick = () => {
+    currentIndex = (currentIndex + 1) % playlist.length;
+    player.src(playlist[currentIndex]);
+    player.play();
+  };
+
+  // 自訂網址輸入
+  document.getElementById("load-url-btn").onclick = () => {
+    var rawUrl = document.getElementById("url-input").value.trim();
+    if (!rawUrl) { alert("請輸入影片網址"); return; }
+    let type = "video/mp4";
+    if (rawUrl.endsWith(".webm")) type = "video/webm";
+    if (rawUrl.endsWith(".ogg")) type = "video/ogg";
+    player.src({ src: rawUrl, type: type });
+    player.load();
+    player.play().catch(err => { console.error("播放失敗：", err); alert("載入失敗，可能網址唔支援影片格式"); });
+  };
+
+  // 建立 Playlist UI
+  var playlistUI = document.getElementById("playlist-ui");
+  playlist.forEach((item, index) => {
+    var btn = document.createElement("div");
+    btn.className = "playlist-item";
+    btn.innerText = item.name;
+    btn.onclick = () => {
+      currentIndex = index;
+      player.src(item);
+      player.play();
+    };
+    playlistUI.appendChild(btn);
+  });
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>
