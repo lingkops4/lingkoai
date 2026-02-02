@@ -9,6 +9,16 @@
 </head>
 <body>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
@@ -197,7 +207,30 @@ body::before {
 <body>
 
   <div class="hero">
-    <h1>Lingko 的作品集</h1>
+   <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lingko — 個人作品集 2026</title>
+   <div style="text-align:left; margin-top:20px; margin-left:20px;">
+  <a href="https://lingkops4.github.io/lingkoai" title="https://lingkops4.github.io/lingkoai">
+    <img src="https://github.com/user-attachments/assets/7bd05b13-79e1-4757-866d-a7a2dacb83af"
+         alt="Lingkoai" width="90" style="cursor:grab;">
+  </a>
+</div>
+
+     <h1>Lingko 的作品集</h1>
     <p>創意有限，程式碼無情 · 2046 Edition<p>
   </div>
 
@@ -311,7 +344,7 @@ body::before {
       <div class="chat-line">
         <div class="avatar"></div>
         <div class="bubble">
-          嘿～1984🧸 整個頁面都係草泥馬啦！<br>
+          嘿～1984🧸 整個頁面都係草泥馬！<br>
           滑鼠移過嚟玩下～🪅 草泥馬會跟住你轉 🪅✨
         </div>
       </div>
@@ -379,7 +412,7 @@ body::before {
 
 <h2>💻📺🎞️Lingko Player 🎞️📺💻</h2>
 
-<video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="800" height="450" poster="display.png" data-setup="{}">
+<video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="800" height="450" poster="wallpaper.png" data-setup="{}">
   <source src="MY_VIDEO_720p.mp4" type="video/mp4" label="720p">
   <source src="MY_VIDEO_1080p.mp4" type="video/mp4" label="1080p">
   <source src="MY_VIDEO.webm" type="video/webm" label="WebM">
@@ -393,7 +426,7 @@ body::before {
   <button id="next-btn" class="btn primary"> 向前 3 秒 ⏩</button>
   <button id="prev-video-btn" class="btn primary">⏮️ 上一個影片</button>
   <button id="next-video-btn" class="btn primary">下一個影片⏭️ </button>
- 
+  <button id="snapshot-btn" class="btn primary">📸 截圖</button>
 </div>
 
 <!-- 自訂網址輸入 -->
@@ -415,8 +448,8 @@ body::before {
   });
 
   var playlist = [
-    { src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", name:"720p 版本" },
-    { src:"https://lingko.my.canva.site/_assets/video/6899e8e42b4faf2ca50e52139bec2ca4.mp4", name:"1080p 版本" },
+    { src:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", type:"video/mp4", name:"720p 版本" },
+    { src:"https://lingko.my.canva.site/_assets/video/6899e8e42b4faf2ca50e52139bec2ca4.mp4", type:"video/mp4", name:"1080p 版本" },
     { src:"MY_VIDEO.webm", type:"video/webm", name:"WebM 版本" }
   ];
   var currentIndex = 0;
@@ -444,13 +477,13 @@ body::before {
   // 上一個影片
   document.getElementById("prev-video-btn").onclick = () => {
     currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-    player.src(playlist[currentIndex]);
+    player.src({ src: playlist[currentIndex].src, type: playlist[currentIndex].type });
     player.play();
   };
   // 下一個影片
   document.getElementById("next-video-btn").onclick = () => {
     currentIndex = (currentIndex + 1) % playlist.length;
-    player.src(playlist[currentIndex]);
+    player.src({ src: playlist[currentIndex].src, type: playlist[currentIndex].type });
     player.play();
   };
 
@@ -462,8 +495,10 @@ body::before {
     if (rawUrl.endsWith(".webm")) type = "video/webm";
     if (rawUrl.endsWith(".ogg")) type = "video/ogg";
     player.src({ src: rawUrl, type: type });
-    player.load();
-    player.play().catch(err => { console.error("播放失敗：", err); alert("載入失敗，可能網址唔支援影片格式"); });
+    player.play().catch(err => {
+      console.error("播放失敗：", err);
+      alert("載入失敗，可能網址唔支援影片格式或有跨域限制");
+    });
   };
 
   // 建立 Playlist UI
@@ -474,12 +509,16 @@ body::before {
     btn.innerText = item.name;
     btn.onclick = () => {
       currentIndex = index;
-      player.src(item);
+      player.src({ src: item.src, type: item.type });
       player.play();
     };
     playlistUI.appendChild(btn);
   });
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
