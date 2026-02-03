@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
@@ -80,7 +60,7 @@ body::before {
     /* 主要容器 */
     .container {
       max-width: 1200px; margin: -4rem auto 0;
-      background: rgba(0, 20, 40, 0.6); backdrop-filter: blur(16px);
+      background: rgba(0, 20, 40, 0.6); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
       padding: 4rem 2rem; border-radius: 28px 28px 28px 28px;
       box-shadow: 0 15px 60px rgba(0, 150, 255, 0.4);
       position: relative; z-index: 1;
@@ -89,6 +69,7 @@ body::before {
     /* 關於我 - 玻璃卡片 */
     .about-card {
       background: rgba(10, 30, 60, 0.55);
+      -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(0, 204, 255, 0.35);
       border-radius: 24px;
@@ -167,6 +148,7 @@ body::before {
       transform-style: preserve-3d;
       transition: all 0.45s cubic-bezier(0.23,1,0.32,1);
       border: 1px solid rgba(125,211,252,0.35);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
       backdrop-filter: blur(10px) saturate(140%);
     }
     .floating-card.is-floating {
@@ -202,6 +184,57 @@ body::before {
       50% { transform: translateY(-14px) translateZ(20px) rotateX(4deg) rotateY(3deg); }
     }
     .subtle { animation: floaty 5.2s ease-in-out infinite; }
+
+    /* Footer styles */
+    footer {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(90deg, #001122 0%, #002244 35%, #003366 50%, #002244 65%, #001122 100%);
+      border-radius: 32px;
+      margin-top: 5rem;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 -12px 40px rgba(0,0,0,0.7),
+                  inset 0 0 60px rgba(0,0,0,0.5),
+                  inset 40px 0 100px rgba(0, 18, 34, 0.9),
+                  inset -40px 0 100px rgba(0, 18, 34, 0.9);
+      overflow: hidden;
+      text-align: center;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(0, 204, 255, 0.13) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    footer p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #c8e0ff;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Logo link styles */
+    .logo-link {
+      text-align: left;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    .logo-link img {
+      cursor: grab;
+    }
+
+    /* Center content styles */
+    .center-content {
+      text-align: center;
+      margin: 5rem 0;
+    }
+
+    /* URL input styles */
+    .url-input-container {
+      margin-top: -554px;
+    }
   </style>
 </head>
 <body>
@@ -299,7 +332,7 @@ body::before {
     </div>
 
     <div style="text-align: center; margin: 5rem 0;">
-      <a class="button" href="https://github.com" target="_blank">GitHub</a>
+      <a class="button" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
       <a class="button" href="mailto:contact@lingko.dev">聯絡我</a>
     </div>
 
